@@ -1,1 +1,1 @@
-web: gunicorn cs50webFinal.wsgi:application
+web: gunicorn TaiwanExpert.wsgi:application
