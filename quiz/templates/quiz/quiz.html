@@ -1,0 +1,42 @@
+{% extends "quiz/layout.html" %}
+
+
+{% block body %}
+<div class="container">
+    <div class="start_view bg" id="start_view">
+        <br>
+        <br>
+        <br>
+        <div class="explain center">
+            You will have ten questions to be answered within 15 seconds. 
+            Each correct answered question will get 10 points, which can be
+            exchanged to rewards. To start the game, press "Start Quiz".
+        </div>
+        <br>
+        <div class="center">        
+            <button type="button" id="start_btn" class="btn btn-primary btn-lg">Start Quiz</button>         
+        </div>   
+        <br>
+        <br>     
+    </div>
+    <div class="quiz_view center" id="quiz_view"> 
+        <div id="timer_view" class="right margin-buttom"></div>
+        <div class="card padding-top">
+            <div id="quiz" class="card-text left"></div>
+            <br>
+        </div>       
+    </div>
+    <div class="report_view center" id="report_view"> 
+        <div class="card padding-top">
+            <div id="reports" class="card-text left"></div>
+            <br>
+        </div>       
+    </div>
+</div>
+
+
+
+    
+
+
+{% endblock %}

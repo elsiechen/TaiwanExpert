@@ -1,0 +1,86 @@
+{% extends "quiz/layout.html" %}
+
+
+{% block body %}
+<div class="container">
+    <div class="card reward-container">
+        <br>
+        <h2 class="margins">MyRewards:</h2>
+        {% if obj %} <!--MyReward exists-->
+            <div class="card-text margins">
+                <div class="inlineleft">User: <strong>{{ obj.user }}</strong>&nbsp;&nbsp;&nbsp;</div>
+                <div class="inlineright">Created: {{ obj.created_time }}</div>
+            </div>
+            <div class="card-text margins">
+                <div class="inlineleft" id="remaining_points">Remaining Points: <strong>{{ obj.points }}</strong>&nbsp;&nbsp;&nbsp;</div>
+                <div class="inlineright" id="update_time">Updated: {{ obj.updated_time }}</div>
+            </div>
+            <br>
+            <div id="reward_view" class="row">
+            {% if rewards %}
+                {% for i in rewards %}
+                <div class="col-sm-3" >
+                    <div class="card" style="max-width:250px; max-height: 500px;"> 
+                        <img class="card-img-top" src='{{ MEDIA_URL }}{{ i.image }}' alt="Card image" style="width:250px; height:150px;">
+                        <br>
+                        <div class="card-text margins">
+                            <span style="font-size: medium; font-weight: 500;">{{ i.name }}</span>
+                        </div>
+                        <div class="card-text margins">
+                            <span style="font-size: medium;">Points Required:&nbsp;<strong>${{ i.points }}</strong></span>  
+                        </div>
+                        <br>
+                    </div>    
+                </div>
+                {% endfor %}     
+            {% else %}
+                <p class="false margins" id="no_reward">You do not have any reward items!</p>
+            {% endif %}
+            </div>
+        {% else %} 
+        <div class="card-text margins">
+            <p class="false">You have not earned any points!</p>
+            <a href="{% url 'quiz_view' %}">
+                <button type="button" class="btn btn-primary btn-lg">Go To Quiz</button>
+            </a>
+        </div>
+        {% endif %}
+        <br>
+        <div class="card-text margins">
+            <p id="message"></p>
+        </div>
+    </div>
+    <hr>
+    <h2>Reward Items:</h2>
+    <div class="menu-container row">   
+        {% for i in items %}
+        <div class="col-sm-3" data-menuid="{{ i.id }}">
+            <div class="card" style="max-width:250px; max-height: 500px;"> 
+                <img class="card-img-top" src='{{ MEDIA_URL }}{{ i.image }}' alt="Card image" style="width:250px; height:150px;">
+                <br>
+                <div class="card-text margins">
+                    <button type="button" class="sub_btn btn btn-primary add_button" data-addid="{{ i.id }}" id="addid_{{ i.id }}">Exchange</button>                                           
+                </div>
+                <div class="card-text margins">
+                    <span style="font-size: medium; font-weight: 500;">{{ i.name }}</span>
+                </div>
+                <div class="card-text margins">
+                    <span style="font-size: medium;">Points Required:&nbsp;<strong>${{ i.points }}</strong></span>  
+                </div>
+                <br>
+                <div class="card-text margins">
+                    {{ i.description }}
+                </div>     
+                <br>  
+            </div>    
+        </div>
+        {% endfor %}      
+    </div>
+    
+</div>
+
+
+    
+
+
+{% endblock %}

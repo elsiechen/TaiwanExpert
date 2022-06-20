@@ -1,0 +1,67 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>{% block title %}TaiwanExpert{% endblock %}</title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+        <link rel="stylesheet" href="{% static 'quiz/styles.css' %}?{% now 'U' %}" type="text/css">
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+  
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+        <script src="{% static 'quiz/quiz.js' %}"></script>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    </head>
+    <body>
+        <div style="background-color:rgb(49, 44, 44); text-align: center; color: whitesmoke;">
+            <!--<img src="static/auctions/auction.jfif" alt="auction" width="1200" height="200">-->
+            <h1 style='padding-top: 30px;padding-bottom:5px;margin-bottom: 10px;'>TaiwanPro</h1>
+            <ul class="nav justify-content-center">
+                {% if user.is_authenticated %}
+                <li class="nav-item">
+                    Signed in as <strong>{{ user.username }}</strong>.
+                </li>
+                {% else %}
+                <li class="nav-item">
+                    Not signed in.
+                </li>
+                {% endif %}
+            </ul>    
+            
+            <ul class="nav" style="margin-left: 50px;">         
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'index' %}" style="color: whitesmoke;">About</a>
+                </li>
+                {% if user.is_authenticated %}
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'quiz_view' %}" style="color: whitesmoke;">Quiz</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'history_view' %}" style="color: whitesmoke;">History</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'reward_view' %}" style="color: whitesmoke;">Reward</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'logout_view' %}" style="color: whitesmoke;">Log Out</a>
+                    </li>
+                {% else %}
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'login_view' %}" style="color: whitesmoke;">Log In</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'register' %}" style="color: whitesmoke;">Register</a>
+                    </li>
+                {% endif %}        
+            </ul>
+        </div>
+        <br>
+        <br>
+        
+        {% block body %}
+        {% endblock %}
+    </body>
+</html>

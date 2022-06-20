@@ -1,0 +1,26 @@
+{% extends "quiz/layout.html" %}
+
+
+{% block body %}
+
+<div class="bg">
+    <br>
+    <br>
+    <div class="explain center">
+        You will have ten questions to be answered within 15 seconds. 
+        Each correct answered question will get 10 points, which can be
+        exchanged to rewards. To take the quiz, press "Go To Quiz".
+    </div>
+    <br>
+    <a href="{% url 'quiz_view' %}">
+        <button type="button" class="btn btn-primary btn-lg">Go To Quiz</button>
+    </a>
+    <br>
+    <br>
+</div>
+
+
+    
+
+
+{% endblock %}

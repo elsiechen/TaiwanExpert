@@ -1,0 +1,40 @@
+{% extends "quiz/layout.html" %}
+
+
+{% block body %}
+
+<div class="container"> 
+        {% for i in reports %}
+        <div class="card paddings history_view" id="history_view">
+            <div class="card-text">
+                <div class="inlineleft">ID: {{ i.id }}&nbsp;&nbsp;&nbsp;</div>
+                <div class="inlineright">Created: {{ i.created_time }}</div>
+            </div>
+            <div class="card-text">
+                <div>User: <b>{{ i.user }}</b></div>
+            </div>
+            <div class="card-text">
+                <div>Points: <b>{{ i.points }}</b></div>
+            </div>
+            <br>
+            <div class="card-text">
+                <button type="button" class="sub_btn btn btn-primary details_btn" id="detailsid_{{ i.id }}" data-detailsid="{{ i.id }}">Show Details</button>
+            </div>
+        </div>   
+        <div class="card paddings details_view" data-detailsview="{{ i.id }}" style="display: none">
+            <div id="close_view" class="card-text">
+                <button type="button" class="sub_btn btn btn-primary close_btn" data-closeid="{{ i.id }}" id="closeid_{{ i.id }}">Close Details</button>       
+            </div>
+            <br>
+
+        </div>
+        <br>
+        {% endfor %}
+  
+    
+
+
+    
+</div>
+
+{% endblock %}
