@@ -9,6 +9,10 @@ https://docs.djangoproject.com/en/3.2/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.2/ref/settings/
 """
+import environ
+# Initialise environment variables
+env = environ.Env()
+environ.Env.read_env()
 
 from pathlib import Path
 
