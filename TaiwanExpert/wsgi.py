@@ -14,3 +14,5 @@ from django.core.wsgi import get_wsgi_application
 os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'cs50webFinal.settings')
 
 application = get_wsgi_application()
+
+os.environ["SECRET_KEY"] = "django-insecure-4q@*vte&w_ae)e93rpwru5l4^9rgnf_hell)&y8c*#&x2kwqpg"
