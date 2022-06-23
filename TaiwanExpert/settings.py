@@ -35,7 +35,7 @@ SECRET_KEY = env('SECRET_KEY')
 import dj_database_url
 import django_heroku
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['*']
 
