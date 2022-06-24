@@ -1,5 +1,5 @@
 """
-WSGI config for cs50webFinal project.
+WSGI config for TaiwanExpert project.
 
 It exposes the WSGI callable as a module-level variable named ``application``.
 
