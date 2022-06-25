@@ -150,8 +150,8 @@ DATABASES['default'].update(db_from_env)
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 
-MEDIA_ROOT=os.path.join(BASE_DIR,'staticfiles/images/').replace('\\', '/')
-MEDIA_URL="/staticfiles/images/"
+MEDIA_ROOT=os.path.join(BASE_DIR,'media/images/').replace('\\', '/')
+MEDIA_URL="/media/images/"
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
