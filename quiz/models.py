@@ -58,7 +58,7 @@ class Report(models.Model):
 class RewardMenu(models.Model):
     name = models.CharField(max_length=300)
     description = models.CharField(max_length=500)
-    image = models.ImageField(upload_to='images/')
+    image = models.ImageField(upload_to='media/images/')
     points = models.IntegerField()
 
     def __str__(self):
