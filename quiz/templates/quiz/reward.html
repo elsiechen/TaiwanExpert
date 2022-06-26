@@ -56,7 +56,7 @@
         {% for i in items %}
         <div class="col-sm-3" data-menuid="{{ i.id }}">
             <div class="card" style="max-width:250px; max-height: 500px;"> 
-                <img class="card-img-top" src='{{ MEDIA_URL }}{{ i.image }}' alt="Card image" style="width:250px; height:150px;">
+                <img class="card-img-top" src="{{ MEDIA_URL }}{{ i.image }}" alt="Card image" style="width:250px; height:150px;">
                 <br>
                 <div class="card-text margins">
                     <button type="button" class="sub_btn btn btn-primary add_button" data-addid="{{ i.id }}" id="addid_{{ i.id }}">Exchange</button>                                           
