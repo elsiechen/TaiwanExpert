@@ -150,7 +150,7 @@ DATABASES['default'].update(db_from_env)
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 
-MEDIA_ROOT=os.path.join(BASE_DIR,'/media/').replace('\\', '/')
+MEDIA_ROOT=os.path.join(BASE_DIR,'media/').replace('\\', '/')
 MEDIA_URL='/media/'
 
 # Default primary key field type
